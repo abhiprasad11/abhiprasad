@@ -1,8 +1,6 @@
-
-```markdown
 # Abhi's Motion Design Portfolio
 
-This is a single-page portfolio website for a motion-first graphic designer and video editor. The core concept of the site is to showcase the transformation **"From Static to Motion,"** demonstrating how static designs evolve into dynamic, animated content. The visual style is a dark, premium, studio aesthetic with cinematic lighting and subtle, elegant animations.
+This is a premium, single-page portfolio website built for a motion-first graphic designer and video editor. The core concept of the site is to showcase the transformation **"From Static to Motion,"** demonstrating how static designs evolve into dynamic, animated content. The visual style features a dark, premium, glassmorphism aesthetic with cinematic lighting and subtle, elegant animations.
 
 **[▶︎ View Live Demo](https://your-deployment-url.vercel.app/)** <!-- Replace with your actual live URL after deployment -->
 
@@ -10,39 +8,42 @@ This is a single-page portfolio website for a motion-first graphic designer and 
 
 ## Features
 
--   **Cinematic Intro Animation:** A custom, multi-stage loading animation featuring line art and welcome text to set a premium tone.
--   **Single-Page Smooth Scroll Layout:** All content is accessible on a single, seamlessly scrolling page.
--   **"Static to Motion" Interaction:** A unique hover effect on portfolio items where static images subtly animate and video thumbnails preview their motion.
--   **Asymmetrical Masonry Grid:** A visually engaging portfolio layout that supports mixed media types (images, videos, text blocks).
--   **Scroll-Triggered Animations:** Elements elegantly fade and slide into view as the user scrolls down the page.
--   **Featured Transformation Section:** A dedicated section that uses scroll-based animation to showcase a "before and after" of a project.
--   **Custom Cursor:** A minimal, interactive cursor that enhances the premium feel of the site.
--   **Fully Responsive:** Designed to look and perform beautifully across desktops, tablets, and mobile devices.
+-   **Cinematic Preloader:** A custom loading animation featuring smooth staggered fade-ins to set a premium tone before the site loads.
+-   **Interactive Ambient Background:** A cursor-reactive, multi-layered color gradient background built to create a living, breathing aesthetic behind the glass panels.
+-   **"Static to Motion" Interaction:** A unique hover-to-play effect on portfolio video items. Thumbnails preview the motion, and videos only play seamlessly upon hovering.
+-   **Dynamic Masonry Grid:** A visually engaging, perfectly aligned custom masonry layout that natively supports vertical Reels, mixed media types, and subtle glass spacers.
+-   **Category Filtering:** Dynamic and animated category transitions using Anime.js for staggering the entry and exit of portfolio items without page reloads.
+-   **Single-Page Architecture:** All content is gracefully handled on a single, seamlessly scrolling React page with fixed header navigation.
+-   **Fully Responsive:** Specifically tailored to feel native on mobile devices while maintaining the premium dark aesthetic on large desktop frames.
 
 ## Tech Stack
 
-This project was built using a modern, efficient frontend stack:
+This project was rebuilt using a modern, scalable frontend stack:
 
--   **[Vite](https://vitejs.dev/):** A next-generation frontend build tool for fast development and optimized production builds.
--   **[TypeScript](https://www.typescriptlang.org/):** A strongly typed superset of JavaScript for robust and maintainable animation logic.
--   **[Anime.js](https://animejs.com/):** A lightweight and powerful JavaScript animation library for choreographing all motion effects.
--   **HTML5 & CSS3:** For structuring the content and creating the visual style, including CSS variables and a masonry grid layout.
+-   **[React 19](https://react.dev/):** Component-based UI library for creating the interactive layout.
+-   **[Vite](https://vitejs.dev/):** A next-generation frontend build tool for extremely fast development and optimized production builds.
+-   **[Tailwind CSS](https://tailwindcss.com/):** Utility-first CSS framework used for all styling, layout, glassmorphism effects, and responsive design.
+-   **[TypeScript](https://www.typescriptlang.org/):** A strongly typed superset of JavaScript for robust component structure and maintainable logic.
+-   **[Anime.js](https://animejs.com/):** A lightweight and powerful JavaScript animation library used for complex DOM choreographies, staggered grid reveals, and precise transition timings.
+-   **[Framer Motion](https://www.framer.com/motion/):** Leveraged for specific interactive spring animations and layout transitions.
 
 ## Project Structure
 
-The codebase is organized to separate concerns, making it easy to manage and update.
+The codebase is organized to separate UI components from page layouts, making it highly scalable.
 
 ```text
-portfolio-project/
-├── index.html          # Main structural markup (Hero, Grid, Process)
+abhishek/
+├── index.html          # Main application entry point
 ├── README.md           # You are here!
 ├── package.json        # Project dependencies and scripts
 ├── tsconfig.json       # TypeScript configuration rules
-├── public/             # Static assets (fonts, images, videos)
+├── public/             # Static assets (images, videos, thumbnails)
 └── src/
-    ├── style.css       # All styling, CSS variables, grid logic, and static hovers
-    ├── main.ts         # The main entry point that initializes the application
-    └── animations.ts   # A dedicated module for all Anime.js choreographies
+    ├── index.css       # Global styles, Tailwind directives, and utilities
+    ├── main.tsx        # React DOM rendering root
+    ├── App.tsx         # Main application shell and routing
+    ├── components/     # Reusable UI components (Preloader, ProjectCard, VideoModal, etc.)
+    └── pages/          # Full page layouts (Home, Portfolio, About)
 ```
 
 ## Getting Started
@@ -74,40 +75,33 @@ You must have [Node.js](https://nodejs.org/) (which includes npm) installed on y
     ```bash
     npm run dev
     ```
-    This will start a local server, and you can view the website in your browser at `http://localhost:5173` (the port may vary). The server supports hot-reloading, so any changes you make to the code will be reflected instantly.
+    This will start a local server, and you can view the website in your browser at `http://localhost:5173` (the port may vary). The server supports hot-reloading.
 
 ## Building for Production
 
-When you are ready to deploy the website, you need to create an optimized production build.
+When you are ready to deploy the website, create an optimized production build:
 
-Run the following command in the project root:
 ```bash
 npm run build
 ```
-This will compile all the files and place them in a new `dist` folder. This `dist` folder contains the complete static website ready for deployment.
+This will compile all React components, minify assets, and place them in a new `dist` folder ready for deployment.
 
 ## Deployment
 
-This Vite project builds to a set of static files, making it perfect for hosting on services like Vercel, Netlify, or GitHub Pages.
+This Vite/React project builds to static files, making it perfect for hosting on services like Vercel or Netlify.
 
 ### Deploying with Vercel
-
-The quickest way to deploy is using the Vercel CLI.
 
 1.  **Install the Vercel CLI:**
     ```bash
     npm install -g vercel
     ```
 
-2.  **Run the build command** (if you haven't already):
-    ```bash
-    npm run build
-    ```
-
-3.  **Deploy from the project root:**
+2.  **Deploy from the project root:**
     ```bash
     vercel --prod
     ```
-    Follow the on-screen prompts. When asked for the directory, ensure it points to the `./dist` folder. Vercel will upload the files and provide you with a live URL.
+    Follow the prompts. Ensure the publish directory points to the `./dist` folder.
 
-# this Website is created by [Kr Satyam](https://github.com/krsatyam11/)
+---
+*Created by [Kr Satyam](https://github.com/krsatyam11)*
