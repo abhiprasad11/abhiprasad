@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-color: #0B0B0B;
+    --text-color: #EAEAEA;
+    --gold-accent: #C9A24A;
+    --rust-accent: #8B3A2B;
+    --primary-font: 'Avigea', serif;
+    --secondary-font: 'Roboto', sans-serif;
+  }
+
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-sans antialiased overflow-x-hidden;
+    /* We can remove custom cursor for now or keep it, let's keep it simple and just use default */
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-normal leading-tight text-white;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-card/50 backdrop-blur-md border border-border;
+  }
+}
